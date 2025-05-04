@@ -1,0 +1,188 @@
+/*
+===============================
+Portfolio Website Stylesheet
+===============================
+Description: Main styles for portfolio website
+Author: Aquatikss
+Components:
+- Base styles and typography
+- Grid layout
+- Project tiles
+- Header section
+- Responsive design
+*/
+
+/* Google Fonts Import
+---------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+/* Global Reset
+---------------------------*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+/* Base Layout & Typography
+---------------------------*/
+html, body {
+    height: 100%;
+    overflow: hidden; /* Prevents scrolling */
+}
+
+body {
+    background-image: url("images/tactile_noise.png");
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    background-repeat: repeat;
+}
+
+/* Main Container
+---------------------------*/
+.container {
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Project Grid Layout
+----------------及ひ-----------*/
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: min(2vh, 20px);
+    width: min(95%, 1200px);  /* Responsive width */
+    height: min(95vh, 1200px); /* Responsive height */
+}
+
+/* Project Tiles Styling
+---------------------------*/
+.grid-item {
+    background-color: transparent;
+    text-align: center;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Project Links
+---------------------------*/
+.grid-item a {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 15px;
+    font-size: clamp(1rem, 2vmin, 1.5rem);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Header Section
+---------------------------*/
+.header {
+    background-color: transparent;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: min(2vh, 20px);
+    grid-column: 2;    /* Center position in grid */
+    grid-row: 2;       /* Center position in grid */
+    padding: min(1vh, 10px);
+    height: 100%;
+}
+
+.header h1 {
+    font-size: clamp(1rem, 3vmin, 2.5rem);
+    word-wrap: break-word;
+}
+
+/* Button Styling
+---------------------------*/
+.header button {
+    padding: min(1vh, 10px) min(2vh, 20px);
+    font-size: clamp(0.8rem, 1.5vmin, 1rem);
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    font-family: "Montserrat", sans-serif;
+    width: fit-content;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effects
+---------------------------*/
+.header button:hover {
+    background-color: #444;
+    scale: 1.05;
+}
+
+.grid-item a:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    scale: 1.05;
+}
+
+/* Project Link Backgrounds
+---------------------------*/
+.project-link {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: white;
+    z-index: 1;
+}
+
+/* Project Link Overlay
+---------------------------*/
+.project-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    z-index: -1;
+    transition: background-color 0.3s ease;
+}
+
+.project-link:hover::before {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Individual Project Backgrounds
+---------------------------*/
+#project-1 { background-image: url("images/project_1.png"); }
+#project-2 { background-image: url("images/project_2.png"); }
+
+/* Responsive Design
+---------------------------*/
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .project-grid {
+        gap: min(1vh, 10px);
+    }
+}
